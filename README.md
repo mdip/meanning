@@ -1,28 +1,48 @@
 # Meanning Cover Studio
 
-Un generatore di copertine editoriali originale costruito con Next.js.
+Meanning is an original technical-book cover studio built with Next.js. Create
+a cover, choose a color and historical figure, position the artwork, and export
+the result as a PNG.
 
-## Asset
+## Public-domain artwork
 
-Le figure disponibili nell'editor sono tavole di costume del 1788 in pubblico
-dominio, ritagliate da una scansione della Boston Public Library su Internet
-Archive. Vedi [`public/people/ATTRIBUTION.md`](public/people/ATTRIBUTION.md).
-Non vengono distribuite cover, loghi, font o illustrazioni di Manning, O'Reilly
-o altri editori.
+The figures in the editor are cut from public-domain 1788 costume plates in a
+Boston Public Library scan held on Internet Archive. Their provenance is
+documented in [`public/people/ATTRIBUTION.md`](public/people/ATTRIBUTION.md).
 
-Il caricamento di immagini esterne non è incluso: se verrà aggiunto, usare
-soltanto asset con una licenza che consenta esplicitamente riuso e modifica,
-registrandone fonte e licenza.
+This project does not include book covers, logos, fonts, or illustrations from
+Manning, O'Reilly, or any other publisher. If external images are ever added,
+use only assets whose licence explicitly permits reuse and modification, and
+record their source and licence.
 
-## Sviluppo
+## Development
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Per verificare la build:
+Open `http://localhost:3000` to view the landing page and
+`http://localhost:3000/editor` to open the cover editor.
+
+## Production build
 
 ```bash
 pnpm build
+```
+
+## GitHub Pages
+
+The GitHub Actions workflow deploys the static export to GitHub Pages. It builds
+with `NEXT_PUBLIC_BASE_PATH=/meanning`, so public assets and routes are served
+correctly from:
+
+```text
+https://mdip.github.io/meanning/
+```
+
+To reproduce the Pages build locally:
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/meanning pnpm build
 ```

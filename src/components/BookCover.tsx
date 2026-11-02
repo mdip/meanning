@@ -156,6 +156,7 @@ interface BookCoverProps {
 
 const Figure = ({ character }: Pick<BookCoverProps, "character">) => {
   const { label, src } = characters[character];
+  const assetPath = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${src}`;
 
   return (
     <Image
@@ -164,7 +165,7 @@ const Figure = ({ character }: Pick<BookCoverProps, "character">) => {
       draggable={false}
       height={1297}
       onDragStart={(event) => event.preventDefault()}
-      src={src}
+      src={assetPath}
       unoptimized
       width={800}
     />
