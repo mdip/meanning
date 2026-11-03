@@ -59,9 +59,9 @@ const CoverEditor = () => {
   };
 
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row">
+    <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:gap-8">
       <section className="w-full font-mono md:w-1/2">
-        <h1 className="text-3xl font-extrabold text-gray-900">
+        <h1 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">
           Meanning Cover Generator
         </h1>
         <p className="mt-3 max-w-lg text-sm leading-6 text-gray-600">
@@ -69,11 +69,11 @@ const CoverEditor = () => {
           1788.
         </p>
 
-        <div className="mt-7 max-w-xl space-y-4">
+        <div className="mt-5 max-w-xl space-y-4 sm:mt-7">
           <label className="block text-sm font-semibold text-gray-700">
             Top line
             <input
-              className="mt-1 w-full rounded border-gray-300 text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
+              className="mt-1 w-full rounded border-gray-300 text-base text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
               maxLength={54}
               onChange={(event) => setEyebrow(event.target.value)}
               value={eyebrow}
@@ -82,7 +82,7 @@ const CoverEditor = () => {
           <label className="block text-sm font-semibold text-gray-700">
             Title
             <input
-              className="mt-1 w-full rounded border-gray-300 text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
+              className="mt-1 w-full rounded border-gray-300 text-base text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
               maxLength={58}
               onChange={(event) => setTitle(event.target.value)}
               value={title}
@@ -91,7 +91,7 @@ const CoverEditor = () => {
           <label className="block text-sm font-semibold text-gray-700">
             Subtitle
             <textarea
-              className="mt-1 w-full rounded border-gray-300 text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
+              className="mt-1 w-full rounded border-gray-300 text-base text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
               maxLength={120}
               onChange={(event) => setSubtitle(event.target.value)}
               rows={3}
@@ -101,7 +101,7 @@ const CoverEditor = () => {
           <label className="block text-sm font-semibold text-gray-700">
             Author
             <input
-              className="mt-1 w-full rounded border-gray-300 text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
+              className="mt-1 w-full rounded border-gray-300 text-base text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
               maxLength={42}
               onChange={(event) => setAuthor(event.target.value)}
               value={author}
@@ -115,7 +115,7 @@ const CoverEditor = () => {
             >
               Historical figure
             </label>
-            <div className="mt-1 flex gap-2">
+            <div className="mt-1 flex items-stretch gap-2">
               <select
                 className="min-w-0 flex-1 rounded border-gray-300 text-sm text-gray-900 shadow-sm focus:border-gray-600 focus:ring-gray-600"
                 id="character"
@@ -144,11 +144,11 @@ const CoverEditor = () => {
             <legend className="text-sm font-semibold text-gray-700">
               Color
             </legend>
-            <div className="mt-2 flex gap-3">
+            <div className="mt-2 flex flex-wrap gap-2 sm:gap-3">
               {Object.entries(palettes).map(([id, { label, color }]) => (
                 <button
                   aria-label={label}
-                  className={`h-9 w-9 rounded-full border-2 ${
+                  className={`h-8 w-8 rounded-full border-2 sm:h-9 sm:w-9 ${
                     palette === id
                       ? "border-gray-900 ring-2 ring-gray-300 ring-offset-2"
                       : "border-transparent"
@@ -160,7 +160,7 @@ const CoverEditor = () => {
                 />
               ))}
               <label
-                className="relative h-9 w-9 cursor-pointer overflow-hidden rounded-full border-2 border-dashed border-gray-500 bg-white"
+                className="relative h-8 w-8 cursor-pointer overflow-hidden rounded-full border-2 border-dashed border-gray-500 bg-white sm:h-9 sm:w-9"
                 title="Custom color"
               >
                 <span className="sr-only">Custom color</span>
@@ -200,10 +200,10 @@ const CoverEditor = () => {
       </section>
 
       <section
-        className="flex w-full items-start justify-center md:w-1/2"
+        className="order-first flex w-full items-start justify-center md:order-none md:w-1/2"
         aria-label="Preview"
       >
-        <div className="w-full max-w-[500px] border border-gray-300">
+        <div className="w-full max-w-[380px] border border-gray-300 sm:max-w-[500px]">
           <BookCover
             author={author}
             character={character}
