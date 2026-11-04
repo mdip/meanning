@@ -1,6 +1,6 @@
 # Meanning Cover Studio
 
-Meanning is an original technical-book cover studio built with Next.js. Create
+Meanning is a technical-book cover studio built with Next.js. Create
 a cover, choose a color and historical figure, position the artwork, and export
 the result as a PNG.
 
